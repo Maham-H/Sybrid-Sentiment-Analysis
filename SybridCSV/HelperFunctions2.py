@@ -116,13 +116,17 @@ def brand_sentiment3(brand, features, svm,n,plot=True):
             brand_data_sentiment[brand[j]]-=100
             
         brand_overall[brand[j],preds[j]]+=1
+    for i in range(np.size(tags)):
+        #print(brand_instances)
+        brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
+     
     if plot:    
         plt.figure(1,figsize=(12,7))
         plt.xlabel('Brand')
         plt.ylabel('Sentiment for the brand')
         plt.title('Brand Sentiment (+100 VP, +50P, 0N, -50Neg, -100VNeg)')
         for i in range(np.size(tags)):
-            brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
+            #brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
             if i<n:
                 plt.plot(tags[i],brand_data_sentiment[tags[i]],'go')
     
@@ -171,6 +175,10 @@ def brand_sentiment5(brand, features, svm,n,plot=True):
             brand_data_sentiment[brand[j]]-=100
             
         brand_overall[brand[j],preds[j]]+=1
+    for i in range(np.size(tags)):
+            #print(brand_instances)
+            brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
+       
     if plot:    
         plt.figure(1,figsize=(12,7))
         plt.xlabel('Brand')
@@ -178,7 +186,7 @@ def brand_sentiment5(brand, features, svm,n,plot=True):
         plt.title('Brand Instances')
         for i in range(np.size(tags)):
             #print(brand_instances)
-            brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
+            #brand_data_sentiment[tags[i]]=brand_data_sentiment[tags[i]]/brand_instances_sent[tags[i]]
             #if plot:
             if i<n:
                 plt.plot(tags[i],brand_instances[tags[i]],'bo')
