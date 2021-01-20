@@ -19,9 +19,8 @@ def get_percentages(brand_overall, cat=2, printit=False):
     s = []
     brandlabels=[]
     for key, sent in brand_overall:
-    
         if i%cat==0:
-            if i !=0:
+            if i!=0:
                 b.append(s)
             brandlabels.append(key)
             s=[]
@@ -32,7 +31,8 @@ def get_percentages(brand_overall, cat=2, printit=False):
         s.append(brand_overall[key,sent])
         if printit:
             print(brand_overall[key,sent], '%', sent, 'comments')
-        b.append(s)
+    b.append(s)
+        
     return b
 
 
